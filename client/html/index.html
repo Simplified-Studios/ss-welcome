@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-...your-integrity-hash-here..." crossorigin="anonymous" />
@@ -8,113 +8,56 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <title>Simplified Shop</title>
+    <title>Simplified Welcome</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://use.typekit.net/bev6xfc.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-</head>
-    <body>
-
-        <!-- Start -->
-
+  </head>
+  <body>
     <div id="main">
-        <div id="app" class="h-dvh bg-gradient-to-t to-slate-950/75 via-white/0 from-slate-900/0 items-center justify-center flex">
-            <div class="flex flex-col gap-5 items-center">
-
-                <div class="h-[5rem]  w-[5rem] bg-slate-950/50 rounded-full flex items-center justify-center absolute">
-                    <img src="img/logo.png" class="w-[4rem]">
+      <div id="app" class="h-dvh bg-gradient-to-t to-slate-950/75 via-white/0 from-slate-900/0 items-center justify-center flex">
+        <div class="flex flex-col gap-5 items-center">
+          <div class="h-[5rem]  w-[5rem] bg-slate-950/50 rounded-full flex items-center justify-center absolute">
+            <img src="img/logo.png" class="w-[4rem]">
+          </div>
+          <div class="h-[5rem] w-[30rem] bg-gradient-to-r from-slate-950/0 via-slate-950/45 to-slate-950/0"></div>
+          <div class="h-[45rem]  w-[30rem] bg-slate-950/80 border border-slate-300/10 p-4">
+            <div id="container-hold" class="flex flex-col gap-5 justify-center">
+              <div class="w-full flex flex-col justify-center items-center">
+                <a class="text-[#77deb9] text-[1.35rem] font-semibold" style="filter: drop-shadow(0px 0px 15px #77deb9);">WELCOME</a>
+                <a class="text-gray-200/50 mt-[-0.2rem] text-[0.75rem] tracking-wide">read the servers news, updates and more...</a>
+              </div>
+              <a class="text-[0.85rem] text-gray-200/75">Important notices</a>
+              <div id="resume" class="overflow-hidden overflow-y-scroll bg-gradient-to-r from-slate-700/25 pr-3 via-slate-950/5 to-slate-950/0 h-[5rem] mt-[-1rem] px-2 py-1">
+                <a class="text-[0.75rem] text-gray-200/75 text-clip">{{ ImportantNotices }}</a>
+              </div>
+              <div class="w-full border-l border-slate-300/10 h-[27rem] relative overeflow-hidden overflow-y-scroll">
+                <div v-for="log in logs">
+                  <div class="px-2 py-2 h-full w-full">
+                    <div id="block-main" class="flex flex-col">
+                      <div id="block" class="bg-slate-950/15 border border-slate-300/20 flex items-center px-2 py-3.5">
+                        <a :class="`font-semibold text-[0.85rem] tracking-wide`" :style="{ filter: `drop-shadow(0px 0px 15px ${log.typeColor})`, color: log.typeColor }">
+                          <span class="mr-1 ml-2">{{ log.symbol }}</span>{{ log._type }}
+                        </a>
+                        <a class="font-medium text-[0.85rem] tracking-wide text-gray-200 ml-6 truncate w-[17.5rem]">{{ log.title }}</a>
+                      </div>
+                      <div id="sub-block" class="border-b border-l border-slate-300/20 rounded-[0.3rem] text-[0.75rem] mt-1 px-2 pt-2 pb-2.5 text-gray-200/75">
+                        <a>{{ log.description }}</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="h-[5rem] w-[30rem] bg-gradient-to-r from-slate-950/0 via-slate-950/45 to-slate-950/0"></div>
-
-                <div class="h-[45rem]  w-[30rem] bg-slate-950/80 border border-slate-300/10 p-4">
-                    <div id="container-hold" class="flex flex-col gap-5 justify-center">
-                        <div class="w-full flex flex-col justify-center items-center">
-                                <a class="text-[#77deb9] text-[1.35rem] font-semibold" style="filter: drop-shadow(0px 0px 15px #77deb9);">WELCOME</a>
-                                <a class="text-gray-200/50 mt-[-0.2rem] text-[0.75rem] tracking-wide">read the servers news, updates and more...</a>
-                        </div>
-
-                        <a class="text-[0.85rem] text-gray-200/75">Important notices</a>
-                        <div id="resume" class="overflow-hidden overflow-y-scroll bg-gradient-to-r from-slate-700/25 pr-3 via-slate-950/5 to-slate-950/0 h-[5rem] mt-[-1rem] px-2 py-1">
-                            <a class="text-[0.75rem] text-gray-200/75 text-clip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu diam felis. Phasellus fermentum, urna nec tincidunt lacinia, diam quam efficitur lorem, vel efficitur ipsum nibh eu dolor. Sed et tellus blandit dui consequat vulputate eget non ipsum. Etiam ut tortor at eros molestie laoreet. Suspendisse ac lectus laoreet, viverra nibh id, luctus nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu diam felis. Phasellus fermentum, urna nec tincidunt lacinia, diam quam efficitur lorem, vel efficitur ipsum nibh eu dolor. Sed et tellus blandit dui consequat vulputate eget non ipsum. Etiam ut tortor at eros molestie laoreet. Suspendisse ac lectus laoreet, viverra nibh id, luctus nisl.</a>
-                        </div>
-    
-                        <div class="w-full border-l border-slate-300/10 h-[27rem] relative overeflow-hidden overflow-y-scroll">
-                            <!-- <i class="fa-solid fa-plus text-[0.7rem] text-[#77deb9] mr-2" style="filter: drop-shadow(0px 0px 5px #77deb9);"></i> -->
-
-                            <div id="updates-log-tab">
-                                <div class="px-2 py-2 h-full w-full">
-                                    <div id="block-main" class="flex flex-col">
-                                        <div id="block" class="bg-slate-950/15 border border-slate-300/20 flex items-center px-2 py-3.5">
-                                            <a class="font-semibold text-[0.85rem] tracking-wide text-[#77deb9]" style="filter: drop-shadow(0px 0px 15px #77deb9);"><span class="mr-1 ml-2">+</span>ADDED</a>
-                                            <a class="font-medium text-[0.85rem] tracking-wide text-gray-200 ml-6 truncate w-[17.5rem]">AUCTIONHOUSE</a>
-                                        </div>
-                                        <div id="sub-block" class="border-b border-l border-slate-300/20 rounded-[0.3rem] text-[0.75rem] mt-1 px-2 pt-2 pb-2.5 text-gray-200/75">
-                                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu diam felis. Phasellus fermentum, urna nec tincidunt lacinia, diam quam efficitur lorem, vel efficitur ipsum nibh eu dolor.</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="updates-log-tab">
-                                <div class="px-2 py-2 h-full w-full">
-                                    <div id="block-main" class="flex flex-col">
-                                        <div id="block" class="bg-slate-950/15 border border-slate-300/20 flex items-center px-2 py-3.5">
-                                            <a class="font-semibold text-[0.85rem] tracking-wide text-orange-300" style="filter: drop-shadow(0px 0px 15px orange);"><span class="mr-1 ml-2">/</span>CHANGED</a>
-                                            <a class="font-medium text-[0.85rem] tracking-wide text-gray-200 ml-6 truncate w-[17.5rem]">HUD DESIGN REDONE</a>
-                                        </div>
-                                        <div id="sub-block" class="border-b border-l border-slate-300/20 rounded-[0.3rem] text-[0.75rem] mt-1 px-2 pt-2 pb-2.5 text-gray-200/75">
-                                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu diam felis. Phasellus fermentum, urna nec tincidunt lacinia, diam quam efficitur lorem, vel efficitur ipsum nibh eu dolor.</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="updates-log-tab">
-                                <div class="px-2 py-2 h-full w-full">
-                                    <div id="block-main" class="flex flex-col">
-                                        <div id="block" class="bg-slate-950/15 border border-slate-300/20 flex items-center px-2 py-3.5">
-                                            <a class="font-semibold text-[0.85rem] tracking-wide text-red-400" style="filter: drop-shadow(0px 0px 15px rgb(255, 71, 71));"><span class="mr-1 ml-2">-</span>REMOVED</a>
-                                            <a class="font-medium text-[0.85rem] tracking-wide text-gray-200 ml-6 truncate w-[17.5rem]">NON-SIMPLIFIED RESOURCES</a>
-                                        </div>
-                                        <div id="sub-block" class="border-b border-l border-slate-300/20 rounded-[0.3rem] text-[0.75rem] mt-1 px-2 pt-2 pb-2.5 text-gray-200/75">
-                                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu diam felis. Phasellus fermentum, urna nec tincidunt lacinia, diam quam efficitur lorem, vel efficitur ipsum nibh eu dolor.</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="updates-log-tab">
-                                <div class="px-2 py-2 h-full w-full">
-                                    <div id="block-main" class="flex flex-col">
-                                        <div id="block" class="bg-slate-950/15 border border-slate-300/20 flex items-center px-2 py-3.5">
-                                            <a class="font-semibold text-[0.85rem] tracking-wide text-red-400" style="filter: drop-shadow(0px 0px 15px rgb(255, 71, 71));"><span class="mr-1 ml-2">-</span>REMOVED</a>
-                                            <a class="font-medium text-[0.85rem] tracking-wide text-gray-200 ml-6 truncate w-[17.5rem]">NON-SIMPLIFIED RESOURCES</a>
-                                        </div>
-                                        <div id="sub-block" class="border-b border-l border-slate-300/20 rounded-[0.3rem] text-[0.75rem] mt-1 px-2 pt-2 pb-2.5 text-gray-200/75">
-                                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu diam felis. Phasellus fermentum, urna nec tincidunt lacinia, diam quam efficitur lorem, vel efficitur ipsum nibh eu dolor.</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-full h-10 flex items-center justify-center flex-col">
-                            <button class="bg-slate-950/10 opacity-50 border border-red-400/20 px-6 py-1.5 text-red-400 hover:opacity-100">
-                                <a @click="Close()" class="font-[600] tracking-wider text-[0.85rem]" style="filter: drop-shadow(0px 0px 15px rgb(255, 80, 80));">CLOSE MENU</a>
-                            </button>
-                            <a class="text-[0.65rem] mt-1 text-gray-200/50">by closing the menu you accept our rules & tos</a>
-                        </div>
-
-                    </div> 
-                </div>
-
+              </div>
+              <div class="w-full h-10 flex items-center justify-center flex-col">
+                <button @click="Close()" class="bg-slate-950/10 opacity-50 border border-red-400/20 px-6 py-1.5 text-red-400 hover:opacity-100">
+                  <a class="font-[600] tracking-wider text-[0.85rem]" style="filter: drop-shadow(0px 0px 15px rgb(255, 80, 80));">CLOSE MENU</a>
+                </button>
+                <a class="text-[0.65rem] mt-1 text-gray-200/50">by closing the menu you accept our rules & tos</a>
+              </div>
             </div>
-            
+          </div>
         </div>
-    </div>
-
-        <!-- End -->
-
-    </body>
-    <script src="./script.js"></script>
+      </div>
+  </body>
+  <script src="./script.js"></script>
 </html>

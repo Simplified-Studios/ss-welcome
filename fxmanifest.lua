@@ -5,6 +5,10 @@ lua54 'yes'
 
 ui_page 'client/html/index.html'
 
+shared_script {
+    'config.lua'
+}
+
 client_scripts {
     'client/*'
 }

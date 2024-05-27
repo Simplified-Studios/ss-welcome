@@ -2,6 +2,8 @@ RegisterNetEvent('OpenUI', function()
     SetNuiFocus(true, true)
     SendNUIMessage({
         action = "open",
+        logs = Config.logs,
+        ImportantNotices = Config.ImportantNotices
     })
 end)
 
