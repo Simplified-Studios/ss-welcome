@@ -1,0 +1,8 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+#main {
+    display: none;
+    user-select: none;
+}
