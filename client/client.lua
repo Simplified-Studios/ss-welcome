@@ -1,4 +1,4 @@
-RegisterNetEvent('OpenUI', function()
+RegisterNetEvent('ss-welcome:client:openUI', function()
     SetNuiFocus(true, true)
     SendNUIMessage({
         action = "open",
@@ -7,20 +7,11 @@ RegisterNetEvent('OpenUI', function()
     })
 end)
 
-RegisterNetEvent('CloseUI', function()
+RegisterNetEvent('ss-welcome:client:closeUI', function()
     SetNuiFocus(false, false)
     SendNUIMessage({
         action = "close",
     })
-end)
-
-local open = false
-RegisterCommand("welcomeui", function()
-    if not open then
-        TriggerEvent("OpenUI")
-    else
-        TriggerEvent("CloseUI")
-    end
 end)
 
 RegisterNUICallback('close', function()
