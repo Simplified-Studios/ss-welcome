@@ -1,3 +1,6 @@
+## Preview
+https://cdn.discordapp.com/attachments/1247458847497650239/1247458848290111532/image.png?ex=66a74b16&is=66a5f996&hm=240b8d6129fd1d0827835d0d9cac3e2db05d1d24db3592c28cbea6b824d575a4&
+
 ## Event: All you need is this event. It can go pretty much anywhere.
 ```lua
 TriggerEvent('ss-welcome:client:openUI')
