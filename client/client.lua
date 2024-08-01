@@ -1,19 +1,24 @@
-RegisterNetEvent('ss-welcome:client:openUI', function()
+-- Function to open the UI
+local function openui()
     SetNuiFocus(true, true)
     SendNUIMessage({
         action = "open",
         logs = Config.logs,
         ImportantNotices = Config.ImportantNotices
     })
-end)
+end
 
-RegisterNetEvent('ss-welcome:client:closeUI', function()
+-- Function to close the UI
+local function closeui()
     SetNuiFocus(false, false)
     SendNUIMessage({
-        action = "close",
+        action = "close"
     })
-end)
+end
 
-RegisterNUICallback('close', function()
-    SetNuiFocus(false, false)
-end)
+-- Register NUI callback for closing the UI
+RegisterNUICallback('close', closeui)
+
+-- Register events to open and close the UI
+RegisterNetEvent('ss-welcome:client:openUI', openui)
+RegisterNetEvent('ss-welcome:client:closeUI', closeui)
